@@ -1,0 +1,34 @@
+<app-loader></app-loader>
+<section class="container-video-game mh-full">
+  <div class="container-buttons-top">
+    <div>
+      <button type="button" title="regresar" (click)="returnPage()">
+        <i class="material-icons">arrow_back</i>
+      </button>
+    </div>
+    <div class="container-indicators">
+      <div class="indicator-1"></div>
+      <div class="indicator-2"></div>
+      <div class="indicator-3"></div>
+    </div>
+  </div>    
+  <div class="container-screen">
+    <div class="content-screen" *ngIf='pokemon != undefined'>
+      <h2>{{pokemon.name}}</h2>
+      <div class="container-info-pokemon">  
+        <div class="container-img-pokemon">
+          <img src="{{pokemon.sprites.other.dream_world.front_default}}" alt="pokemon {{pokemon.name}}">
+        </div>     
+        <div class="container-stats">
+          <div *ngFor="let stat of pokemon.stats" class="item-stat">
+            <label>{{stat.base_stat}}</label>
+            <small>{{stat.stat.name}}</small>
+          </div>
+        </div>                 
+      </div>
+    </div>
+  </div>
+  <div class="container-logo-pokemon">
+    <img src="assets/images/logo_pokemon.png" alt="logo pokémon">
+  </div>
+</section>

@@ -1,0 +1,22 @@
+<div class="card-pokemon">
+  <div class="card-header" [ngStyle]="{'background-color':info_pokemon.color}">
+    <div class="container-img-pokemon">
+      <img src={{info_pokemon.url_photo}} alt="pokemom {{info_pokemon.name}}">
+    </div>
+  </div>
+  <div class="card-body">
+    <h2>{{info_pokemon.name}}</h2>
+    <h3>{{info_pokemon.base_experience}} Exp</h3>
+    <div class="container-stats">
+      <div *ngFor="let stat of info_pokemon.stats;let index = index" class="item-stat" [ngClass]="{'bg-item-stat':index == 1}" [ngStyle]="{'background-color': index == 1 ? info_pokemon.color : 'transparent'}">
+        <label>{{stat.base_stat}}</label>
+        <small class="color-item">{{stat.stat.name}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button type="button" title="detalles pokémon" (click)="redirectPage(info_pokemon.id)">
+      <i class="material-icons">add</i>
+    </button>
+  </div>
+</div>

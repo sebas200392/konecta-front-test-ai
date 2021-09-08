@@ -1,0 +1,9 @@
+<ng-container *ngIf="display_ | async as display">  
+  <section [class.open]="display === 'open'" [class.close]="display === 'close'" class="mh-full">        
+    <div class="pokeball">
+      <div class="pokeball-button"></div>
+    </div>  
+    <h2>Cargando...</h2>
+  </section>
+</ng-container>
+

@@ -1,0 +1,50 @@
+.container-header{
+  width: 100%;
+  height: 65px;
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & .container-logo{
+    width:150px;
+    height: 100%;    
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & .conatiner-effect-write {	
+    display: table;  
+    & h2 { 
+      position: relative; 
+      float: left;	
+      color:var(--white-color);
+      background-color:var(--black-color);
+      font-size: 4vw;
+      & span {
+        position:absolute;
+        right:0;
+        width:0;    
+        background-color:var(--black-color);
+        border-left: 2px solid var(--white-color);
+        animation: writing 2s steps(30) infinite alternate;
+      }
+    }        
+  }
+        
+}
+
+@keyframes writing {
+  from { width: 100% }
+  to { width:0 }
+}
+
+@media only screen and (max-width: 400px) {
+  .container-header{
+    & .conatiner-effect-write{
+      display: none;
+    }
+  }  
+}

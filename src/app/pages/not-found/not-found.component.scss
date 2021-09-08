@@ -1,0 +1,43 @@
+section{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  position: relative;
+  overflow:hidden;
+  & h1{
+    font-size: 25vw;
+    color: var(--red-color);
+    font-weight: bold;
+    margin:0;
+    padding: 0;
+  }
+  & h3{
+    font-size: 5vw;        
+    margin:10px
+  }
+  & .container-logo{
+    width: 200px;
+    height: 60px;
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+  & .container-bg{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.3;
+    & img{           
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }  
+}

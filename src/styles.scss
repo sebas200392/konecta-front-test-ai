@@ -1,1 +1,59 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~material-icons/iconfont/material-icons.css';
+
+:root{
+  --vh:100%;  
+  --primary-color:#00BFFF;
+  --accent-color:#DB7093;  
+  --white-color:#FFF;
+  --black-color:#060606;
+  --text-color:#060606;
+  --muted-color:rgba(0,0,0,0.7);
+  --red-color:#df4230;
+  --light-gray-color:#ccc;
+  --med-gray-2-color:#888888;    
+  --dark-gray-1-color:#777777;
+  --dark-gray-2-color:#454545;
+  --success-color:#00C9AB;
+  --warning-color:#F9F871;
+  --error-color:red;
+  --info-color:#00A2FF;
+}
+
+.h-full{  
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+.mh-full{
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+button:focus,input:focus,textarea:focus{
+  outline: none;
+}
+
+button{
+  transition: all .5s;
+}
+
+button:hover{
+  transform: scale(1.1);  
+}
+
+body,html{  
+  padding: 0;
+  margin: 0;
+  font-family: HelveticaLight;
+  color: var(--text-color);
+}
+
+@font-face {
+  font-family: 'HelveticaLight';
+  src: url('assets/fonts/Helvetica_Neue_Light.ttf') format('truetype');  
+  font-style: normal;
+}
+
+@font-face{
+  font-family: "font-libido";
+  src: url("assets/fonts/SoundingScript.ttf")format("truetype");
+  font-style: normal;
+}

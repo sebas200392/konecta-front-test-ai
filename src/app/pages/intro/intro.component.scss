@@ -1,0 +1,60 @@
+.container-intro{
+  width: 100%;         
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5vw;      
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.bg-intro-light{
+  background-color: var(--white-color);    
+  color: var(--black-color);    
+  animation: text_change1 800ms forwards;    
+}
+
+.bg-intro-dark{
+  background-color: var(--black-color);    
+  color: var(--white-color);
+  animation: text_change 800ms forwards;    
+}
+
+@keyframes text_change{
+  from{
+      font-size: 5vw;
+  }
+  to{
+      font-size: 7vw;
+  }
+}
+
+@keyframes text_change1{
+  from{
+      font-size: 7vw;
+  }
+  to{
+      font-size: 5vw;
+  }
+}
+
+.bg_{    
+  background: var(--white-color);    
+  animation: bgc 2s forwards;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+@keyframes bgc{
+  from{       
+      width: 100px;
+      height: 100px; 
+      transform: scale(1);
+  }
+  to{        
+      transform: scale(200);
+  }
+}

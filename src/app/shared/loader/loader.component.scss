@@ -1,0 +1,108 @@
+section {
+  width: 100vw;
+  display: none;
+  position: fixed;  
+  left: 0;
+  top: 0;    
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.95);      
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .pokeball {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: var(--white-color);
+    border: 10px solid var(--black-color);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: inset -10px 10px 0 10px var(--light-gray-color);
+    animation: shake 1.2s cubic-bezier(.36,.07,.19,.97) infinite;
+    &::before, &::after{
+      content: "";
+      position: absolute;
+    }
+    &::before{
+      background: var(--red-color);
+      width: 100%;
+      height: 50%;
+    }
+    &::after{
+      width: 100%;
+      height: 20px;
+      top: calc(50% - 10px);
+      background: var(--black-color);
+    }
+    & .pokeball-button{
+      position: absolute;  
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: 60px;
+      height: 60px;
+      background: var(--med-gray-2-color);
+      border: 10px solid var(--white-color);
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 0 10px var(--black-color);
+      animation: blink 0.5s alternate infinite;
+    }
+  }
+
+  & h2{
+    color: var(--white-color);
+    font-size: 50px;
+  }
+  
+  &.open {
+    display: flex;  
+  }
+
+  & .close{
+    display: none;
+  }
+
+}
+
+
+@keyframes blink {
+  from { background: var(--white-color);}
+  to { background: var(--red-color); }
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0); }
+  20% { transform: translate(-10px, 0) rotate(-20deg); }
+  30% { transform: translate(10px, 0) rotate(20deg); }
+  50% { transform: translate(-10px, 0) rotate(-10deg); }
+  60% { transform: translate(10px, 0) rotate(10deg); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
+
+@media only screen and (max-width: 298px) {
+  section{
+    .pokeball {     
+      width: 120px;
+      height: 120px;          
+      border: 5px solid var(--black-color);                  
+      &::after{        
+        height: 10px;
+        top: calc(50% - 10px);        
+      }
+      & .pokeball-button{        
+        width: 30px;
+        height: 30px;        
+        border: 5px solid var(--white-color);        
+      }
+    }
+  
+    & h2{      
+      font-size: 20px;
+    }
+  }
+}
