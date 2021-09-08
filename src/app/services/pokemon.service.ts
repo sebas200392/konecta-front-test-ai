@@ -13,8 +13,8 @@ export class PokemonService {
     this.url_api = environment.URL_API
   }
 
-  getPokemons(){    
-    return this.http.get(this.url_api+'?limit=50&offset=10');
+  getPokemons(limit:number,offset:number){    
+    return this.http.get(`${this.url_api}?limit=${limit}&offset=${offset}`);
   }
 
   getInfoPokemon(identification:string){

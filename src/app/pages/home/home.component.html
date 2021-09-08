@@ -1,12 +1,14 @@
 <app-loader></app-loader>
-<app-pager></app-pager>
 <section #scrollMe class="contaimer-main mh-full" (scroll)="goUp($event)">
-  <app-header></app-header>    
+  <app-header></app-header>      
   <div class="container-pokemons">
     <div *ngFor="let info_pokemon of info_pokemons" class="item-pokemon">
       <app-card-pokemon [info_pokemon]="info_pokemon"></app-card-pokemon>
     </div>  
   </div>  
+  <div class="container-pager">
+    <app-pager [total_items]="total_items" (changeIndexPage)="changeIndexPage($event)"></app-pager>
+  </div>
   <button (click)="scrollToTop()" class="btn-scroll-up" [ngClass]="{'btn-animation':flag_view_btn_scroll}"><i class="material-icons">arrow_upward</i></button>
 </section>
 

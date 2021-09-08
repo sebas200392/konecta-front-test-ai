@@ -1,1 +1,8 @@
-<p>pager works!</p>
+<div class="container-pager">
+  <button [disabled]="current_page <= 1" [ngClass]="{'btn-disabled':current_page <= 1}" type="button" title="anterior" class="btn-page" (click)="controlPage('prev')"><i class="material-icons">arrow_back_ios</i></button>
+  <div *ngFor="let page of pages" class="item-page">
+    <button type="button" (click)="changePage(page)" class="btn-page" [ngClass]="{'btn-active':current_page == page}" title="{{page}}">{{page}}</button>
+  </div>
+  <button [disabled]="current_page >= total_pages" [ngClass]="{'btn-disabled':current_page >= total_pages}" type="button" title="siguiente" class="btn-page" (click)="controlPage('next')"><i class="material-icons">arrow_forward_ios</i></button>
+</div>
+

@@ -1,6 +1,7 @@
 .contaimer-main{
   max-width: 100%;    
   overflow-y: auto;
+  overflow-x:hidden;
   scroll-behavior: smooth;
 }
 
@@ -39,9 +40,23 @@
   }
 }
 
+.container-pager{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+}
+
 .btn-animation{
   opacity: 1;  
   bottom: 10px;
 }
 
 
+@media only screen and (max-width: 275px) {
+  .container-pokemons{            
+    & .item-pokemon{
+      width: 100%;                    
+    }  
+  }  
+}

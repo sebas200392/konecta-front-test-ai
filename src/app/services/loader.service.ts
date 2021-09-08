@@ -24,6 +24,6 @@ export class LoaderService {
       this.display.next('close');
       document.getElementsByTagName("body")[0].style.overflow = "auto";
       clearInterval(this.id_timer);
-    },2000);    
+    },2500);    
   }
 }

@@ -11,9 +11,9 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 export class HomeComponent implements OnInit {
 
   @ViewChild('scrollMe',{ static: true}) myScrollContainer!: ElementRef;
-  public flag_view_btn_scroll:boolean = false;
-  public pokemons:any[] = [];
+  public flag_view_btn_scroll:boolean = false;  
   public info_pokemons:InfoPokemon[] = [];
+  public total_items:number=0;
   public colors_by_type:any = {bug:"#A8B820",dark:"#7A5848",dragon:"#7860E0",electric:"#F8D030",fairy:"#E79FE7",fighting:"#A05038",
     fire:"#F05030",flying:"#98A8F0",ghost:"#6060B0",grass:"#78C850",ground:"#E9D6A4",ice:"#58C8E0",normal:"#A8A090",posion:"#B058A0",
     psychic:"#F870A0",rock:"#B8A058",steell:"#A8A8C0",water:"#3899F8",default:"#57bbe6"
@@ -21,17 +21,21 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonService:PokemonService,private loaderService:LoaderService) { }
 
   ngOnInit(): void {
+    this.getPokemons(50,9);
+  }
+
+  getPokemons(limit:number,offset:number){
+    this.info_pokemons = [];
     this.loaderService.open();
-    this.pokemonService.getPokemons().subscribe((response:any)=>{
+    this.pokemonService.getPokemons(limit,offset).subscribe((response:any)=>{
+      this.total_items = response.count;                
       response.results.forEach(((pokemon:any) =>{
-        this.pokemonService.getInfoPokemon(pokemon.name).subscribe((info_pokemon:any)=>{
-          this.pokemons.push(info_pokemon);
+        this.pokemonService.getInfoPokemon(pokemon.name).subscribe((info_pokemon:any)=>{          
           this.info_pokemons.push(this.fillInfoPokemon(info_pokemon));
-          this.loaderService.close();
-          //console.log(this.info_pokemons);
+          this.loaderService.close();          
         });
       }));
-    })
+    });
   }
 
   fillInfoPokemon(data:any){
@@ -66,6 +70,10 @@ export class HomeComponent implements OnInit {
 
   scrollToTop(){             
     this.myScrollContainer.nativeElement.scrollTo({left: 0 , top:0, behavior: 'auto'});               
+  }
+
+  changeIndexPage(data:any){    
+    this.getPokemons(50,data.end_index);
   }
 
   
